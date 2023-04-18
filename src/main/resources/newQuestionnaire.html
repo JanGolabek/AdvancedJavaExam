@@ -1,0 +1,31 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create question | Kristiania Questionnaire</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Add question member</h1>
+<form method="POST" action="/api/newQuestionnaire">
+    <label>Question title: <input type="text" name="title" /></label> <br>
+    <label>Question text: <input type="text" name="text" /></label> <br>
+    <button>Add</button> <br>
+</form>
+
+<div>
+    <a href="index.html">Return to front page!</a>
+    <br>
+    <a href="addOption.html">Add options to your questions</a>
+</div>
+</body>
+<script>
+    fetch("/api/questionOptions")
+        .then(function(response) {
+            return response.text();
+        }).then(function(text) {
+        document.getElementById("questions").innerHTML = text;
+    });
+</script>
+</html>
+

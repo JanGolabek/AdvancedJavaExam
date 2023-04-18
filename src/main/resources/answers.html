@@ -1,0 +1,28 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answers</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Answers</h1>
+
+<form method="POST" action="/api/answers">
+    <div id="answers"></div>
+</form>
+<div>
+    <a href="addOption.html">Add new questions!!</a>
+    <a href="newQuestionnaire.html">Add new questionnaire </a>
+</div>
+</body>
+<script>
+    fetch("/api/answers")
+        .then(function(response) {
+            return response.text();
+        }).then(function(text) {
+        document.getElementById("answers").innerHTML = text;
+    });
+</script>
+</html>
+

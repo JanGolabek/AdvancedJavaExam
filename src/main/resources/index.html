@@ -1,0 +1,48 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kristiania Questionnaire</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Questionnaire</h1>
+
+<form method="POST" action="/api/index" id="answerTask">
+    <label for="questions">Question: </label>
+    <select id="questions" name="questions" form="answerTask">
+
+    </select>
+
+    <label for="questions2">Alternative: </label> <br>
+    <select id="questions2" name="questions2" form="answerTask">
+    </select>
+    <input type="submit">
+</form>
+<div>
+    <a href="addOption.html">Add new alternatives</a>
+    <a href="newQuestionnaire.html">Add new questionnaire </a>
+    <a href="answers.html">View answers</a>
+</div>
+</body>
+<script>
+    fetch("/api/questions")
+        .then(function(response) {
+            return response.text();
+        }).then(function(text) {
+        document.getElementById("questions").innerHTML = text;
+    });
+    fetch("/api/questions2")
+        .then(function(response) {
+            return response.text();
+        }).then(function(text) {
+        document.getElementById("questions2").innerHTML = text;
+    });
+    fetch("/api/questions2")
+        .then(function(response) {
+            return response.text();
+        }).then(function(text) {
+        document.getElementById("questions2").innerHTML = text;
+    });
+</script>
+</html>

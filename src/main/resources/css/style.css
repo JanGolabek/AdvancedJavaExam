@@ -1,0 +1,16 @@
+body {
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+#questions{
+    display: block;
+    background-color: burlywood;
+    align-items: center;
+
+}
+
+select {
+    align-self: center;
+    margin-left: 49%;
+}

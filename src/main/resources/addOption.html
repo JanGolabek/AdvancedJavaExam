@@ -1,0 +1,39 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add option to question | Kristiania Questionnaire</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Add option to question</h1>
+<form method="POST" action="/api/tasks" id="questionTask">
+    <label for="questions">Question: </label>
+    <select id="questions" name="questions" form="questionTask">
+
+    </select>
+
+    <label for="alternative">Alternative: </label>
+    <input type="text" id="alternative" name="alternative">
+    <input type="submit">
+</form>
+
+
+
+
+
+
+<div>
+    <a href="index.html">Return to front page!</a>
+</div>
+</body>
+<script>
+    fetch("/api/questionOptions")
+        .then(function(response) {
+            return response.text();
+        }).then(function(text) {
+        document.getElementById("questions").innerHTML = text;
+    });
+</script>
+</html>
+
